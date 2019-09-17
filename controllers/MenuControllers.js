@@ -1,4 +1,6 @@
 const inquirer = require('inquirer');
+const dateFormat = require('dateformat');
+var day = dateFormat(new Date(), 'mm/dd/yyyy h:mm:s:ss');
 
 module.exports = class MenuController {
     constructor(){
@@ -9,7 +11,8 @@ module.exports = class MenuController {
                 message: 'Please choose from an option below: ',
                 choices: [
                     'Add new contact',
-                    'Exit'
+                    'Exit',
+                    'Get Date'
                 ]
             }
         ];
@@ -49,5 +52,10 @@ module.exports = class MenuController {
     exit(){
         console.log('Thanks for using AddressBloc!');
         process.exit();
+    }
+
+    getDate(){
+        console.log(day);
+        this.main();
     }
 }
